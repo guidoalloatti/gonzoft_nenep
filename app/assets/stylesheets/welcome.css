@@ -1,0 +1,10 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#carrousel-container .col-md-8 {
+  border: 10px solid;
+  padding-right: 0px;
+  padding-left: 0px;
+}

@@ -1,0 +1,103 @@
+body {
+  margin-top: 54px;
+  margin-bottom: 70px;
+}
+
+.navbar-form input {
+  width: 250px !important;
+}
+
+.carousel-caption {
+  right: 0;
+  left: 0;
+}
+
+#carrousel-container {
+  border: 10px solid;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.carousel-caption h1 {
+    font-size: 130px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+    margin-top: 10px;
+    margin-bottom: 225px;
+}
+
+.carousel-caption h3 {
+    font-size: 100px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+    margin-top: 10px;
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+
+.panel-primary a {
+  color: #d9edf7;
+}
+
+.footer-row .col-md-6 {
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-row h1 {
+  margin: 0;
+}
+
+.footer-row .col-md-6 {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+.footer-row .col-md-6.promo-footer {
+  margin-left: 591px;
+}
+
+
+/* FEATURETTE CSS */
+.featurette-divider {
+    margin: 40px 0;
+}
+
+.featurette {
+    padding-top: 40px;
+    overflow: hidden;
+}
+
+.featurette-image.pull-left {
+    margin-right: 20px;
+}
+
+.featurette-image.pull-right {
+    margin-left: 40px;
+}
+
+.featurette-heading {
+    font-size: 50px;
+}
+
+.rounded-featurette {
+  padding-top: 0px;
+}
+
+#services.rounded-featurette {
+  -moz-border-radius: 0px 100px 100px 0px;
+  border-radius: 0px 100px 100px 0px;
+  background: rgb(189, 230, 250);
+}
+#about.rounded-featurette {
+  -moz-border-radius: 0px 170px 170px 0px;
+  border-radius: 0px 170px 170px 0px;
+  background: rgb(164, 207, 251);
+}
+#contact.rounded-featurette {
+  background: rgb(124, 207, 251);
+}
