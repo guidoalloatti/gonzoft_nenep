@@ -1,6 +1,6 @@
 body {
   margin-top: 54px;
-  margin-bottom: 70px;
+  margin-bottom: 120px;
 }
 
 .navbar-form input {
@@ -53,9 +53,13 @@ body {
   margin: 0;
 }
 
-.footer-row .col-md-6 {
+.footer-row .panel {
+  max-height: 550px;
+  overflow: hidden;
+}
+.footer-row .col-md-6 .collapse.in {
   max-height: 500px;
-  overflow-y: scroll;
+  overflow: auto;
 }
 .footer-row .col-md-6.promo-footer {
   margin-left: 591px;
