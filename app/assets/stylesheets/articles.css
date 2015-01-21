@@ -1,0 +1,13 @@
+.news-color {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(210, 225, 254)), to(rgb(187, 208, 251))); 
+
+}
+
+.btn-group {
+  display: flex;
+}
+
+a:hover { color: #413421 !important; }
+
+.panel-heading>a:hover { color: #fff !important; }
+

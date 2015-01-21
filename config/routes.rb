@@ -14,7 +14,9 @@ Nenep::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+  resources :articles
+  get 'article/:id/visible' => 'articles#updateVisibility'
+  get 'welcome/articles/:id' => 'welcome#showReading'
   # Example resource route with options:
   #   resources :products do
   #     member do

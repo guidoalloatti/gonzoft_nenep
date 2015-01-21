@@ -1,0 +1,60 @@
+
+<%= form_for(@article, html: { multipart: true } ) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-xs-8">
+    <div class="form-group">
+      <label class="control-label" for="title">Título</label>
+      <input class="form-control" type="text" id="title" name="article[title]" placeholder="Este campo es requerido" value="<%= @article.title %>" required>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="form-group">
+      <label class="control-label" for="date">Fecha</label>
+      <input class="form-control" type="date" id="date" name="article[date]" value="<%= !@article.date.nil? ? @article.date.strftime('%Y-%m-%d') : ''%>"required>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="form-group">
+      <label class="control-label" for="visible">Visible?</label>
+      <input type="checkbox" id="visible" name="article[visible]"  <%= @article.visible ? 'checked' : ''%>/>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="form-group">
+      <label class="control-label" for="detail">Sub-título</label>
+      <input class="form-control" type="text" id="detail" value="<%= @article.detail %>" name="article[detail]" placeholder="" >
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="form-group">
+      <label class="control-label" for="author">Autor</label>
+      <%= collection_select( :article, :author, @users, :name, :name, {class: 'form-control'}, { class: 'form-control' } ) %>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="form-group">
+      <label class="control-label" for="author">Imagen</label>
+      <%= f.file_field :photo, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="form-group">
+      <label class="control-label" for="text">Texto</label>
+      <textarea class="form-control" rows="13" name="article[text]" ><%= @article.text %></textarea>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a class="btn btn-default" href="/articles">Volver</a>
+  </div>
+<% end %>

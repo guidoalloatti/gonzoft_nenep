@@ -11,10 +11,13 @@
 
   <div class="featurette rounded-featurette" id="services">
       <%= image_tag asset_path('servicios.jpg'), class:"featurette-image img-circle img-responsive pull-left" %>
-      <h2 class="featurette-heading">Ventas mayoristas
-          <small class="text-muted">nuestra especialidad</small>
+      <h2 class="featurette-heading">Nené Peñaranda
+          <small class="text-muted">Grupo Costa Rosario</small>
       </h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna. consulta también nuestros paquetes individuales.</p>
+      <p class="lead">Nené Peñaranda, empresa de viajes y turismo con licencia otorgada por el <strong>Ministerio de Turismo de Argentina N° 12616</strong>, es Agente General Exclusivo para la región sur de la provincia de Santa Fe y norte de la provincia de Buenos Aires, de la compañia <strong>Costa Cruceros</strong>.</p>
+      <p class="lead">
+      Esta exclusividad la convierte en el sitio especializado para la comercialización de productos de la compañía. Cuenta con un servicio personalizado a cargo de profesionales con una importante formación en la especificidad de las "vacaciones en cruceros".
+      </p>
   </div>
   
   <hr class="featurette-divider">
@@ -23,18 +26,22 @@
       <%= image_tag asset_path('nenep-map.png'), class:"featurette-image img-circle img-responsive pull-right" %>
       <!-- <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500"> -->
       <h2 class="featurette-heading">Donde estamos?
-          <span class="text-muted">Con mas de 10 años trabajando en Rosario</span>
+          <small class="text-muted">Con mas de 10 años trabajando en Rosario</small>
       </h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      <p class="lead">
+      Además de los itinerarios marítimos, otras alternativas para viajar están disponibles : servicios aéreos y terrestres en Brasil, Chile y todos los destinos de Argentina como la pousada La Boheme de Buzios, Cataratas del Iguazú, Bariloche, Calafate, NOA argentino, entre otros.
+      </p>
   </div>
 
   <hr class="featurette-divider">
-  <div class="featurette rounded-featurette" id="contact" >
+  <div class="featurette rounded-featurette" id="contact">
       <%= image_tag asset_path('qrplanet.png'), class:"featurette-image img-rectangle img-responsive pull-left" %>
       <h2 class="featurette-heading">Su consulta no molesta
-          <span class="text-muted"><a href="#" data-toggle="modal" data-target="#contactModal">Contáctenos</a></span>
+          <small class="text-muted"><a href="#" data-toggle="modal" data-target="#contactModal">Contáctenos</a></small>
       </h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      <p class="lead">Las consultas son atendidas por un equipo de trabajo que se ocupa de proveer un óptimo asesoramiento, que se adapta a los gustos, intereses y presupuesto de los viajeros.</p>
+      <p class="lead">Puede tomar una foto al código QR para enviar un mail personalizado a nuestro equipo o simplemente hacer click en <a data-toggle="modal" data-target="#contactModal">Contactenos</a> para acceder a nuestro formulario</p>
+
   </div>
   <!-- End Featurette -->
 
@@ -62,12 +69,12 @@
                 <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
                 <li class="list-group-item"><strong>Noches:</strong> 7</li>
                 <li class="list-group-item">
-                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
                       Ver más
                       <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
                     </a>
-                    <a class="btn btn-default btn-lg">
+                    <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
                       Consultar
                       <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
                     </a>
@@ -87,12 +94,12 @@
                 <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
                 <li class="list-group-item"><strong>Noches:</strong> 7</li>
                 <li class="list-group-item">
-                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
                       Ver más
                       <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
                     </a>
-                    <a class="btn btn-default btn-lg">
+                    <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
                       Consultar
                       <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
                     </a>
@@ -112,12 +119,12 @@
                 <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
                 <li class="list-group-item"><strong>Noches:</strong> 7</li>
                 <li class="list-group-item">
-                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
                       Ver más
                       <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
                     </a>
-                    <a class="btn btn-default btn-lg">
+                    <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
                       Consultar
                       <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
                     </a>
@@ -137,12 +144,12 @@
                 <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
                 <li class="list-group-item"><strong>Noches:</strong> 7</li>
                 <li class="list-group-item">
-                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
                       Ver más
                       <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
                     </a>
-                    <a class="btn btn-default btn-lg">
+                    <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
                       Consultar
                       <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
                     </a>
@@ -162,12 +169,12 @@
                 <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
                 <li class="list-group-item"><strong>Noches:</strong> 7</li>
                 <li class="list-group-item">
-                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
                       Ver más
                       <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
                     </a>
-                    <a class="btn btn-default btn-lg">
+                    <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
                       Consultar
                       <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
                     </a>
@@ -187,12 +194,12 @@
                 <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
                 <li class="list-group-item"><strong>Noches:</strong> 7</li>
                 <li class="list-group-item">
-                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
                       Ver más
                       <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
                     </a>
-                    <a class="btn btn-default btn-lg">
+                    <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
                       Consultar
                       <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
                     </a>
@@ -209,48 +216,23 @@
         <div class="panel-heading center">
           <h1 align="center">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseNews" class="collapsed" aria-expanded="true" aria-controls="collapseNews">
-              <strong>Novedades</strong>
+              <strong>Literaturas de viaje</strong>
               <span class="pull-right glyphicon glyphicon-info-sign" style="margin-left: 10px;"></span>
             </a>
           </h1>
         </div>
         <div id="collapseNews" class="panel-body panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <% @articles.each do |article|%>
           <div class="media">
-            <a class="media-left media-top" href="#">
-              <img src="caribe-chico.jpg" alt="...">
+            <a class="media-left media-top" href="/welcome/articles/<%= article.id %>">
+              <%= image_tag article.photo.url(:small) %>
             </a>
             <div class="media-body">
-              <h4 class="media-heading"><a>Titulo</a> <small>Titulo mas chico, algun dato</small></h4>
-              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+              <h4 class="media-heading"><a><%= article.title %></a> <small><%= truncate(article.detail, length: 30)%> - <%= article.date.strftime("%d/%m/%Y")%></small></h4>
+              <p class="lead"><%= truncate(article.text, length: 200) %></p>
             </div>
           </div>
-          <div class="media">
-            <a class="media-left media-top" href="#">
-              <img src="costa_fortuna400.jpg" alt="...">
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading"><a>Otro titulo</a> <small>Titulo mas chico, algun otr texto</small></h4>
-              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            </div>
-          </div>
-          <div class="media">
-            <a class="media-left media-top" href="#">
-              <img src="caribe-chico.jpg" alt="...">
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading"><a>Titulo</a> <small>Titulo mas chico, algun dato</small></h4>
-              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            </div>
-          </div>
-          <div class="media">
-            <a class="media-left media-top" href="#">
-              <img src="costa_fortuna400.jpg" alt="...">
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading"><a>Otro titulo</a> <small>Titulo mas chico, algun otr texto</small></h4>
-              <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            </div>
-          </div>
+          <% end%>
         </div>
       </div>
     </div>

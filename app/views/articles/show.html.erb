@@ -1,0 +1,23 @@
+<div id="article-show" class="container">
+  <% if(!notice.nil?) %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+
+  <div class="media">
+    <% if(!@article.photo.url.include?("missing.png"))%>
+    <a class="media-left media-top" href="/welcome/articles/<%= @article.id %>">
+      <%= image_tag @article.photo.url(:medium) %>
+    </a>
+    <% end %>
+    <div class="media-body">
+      <h4 class="media-heading"><a><%= @article.title %></a> <small><%= @article.detail%> - <%= @article.date.strftime("%d/%m/%Y")%></small></h4>
+      <p class="lead"><%= @article.text %></p>
+    </div>
+  </div>
+  
+  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">      
+    <%= link_to 'Volver', articles_path, { class: "btn btn-primary btn-lg"} %>
+    <%= link_to 'Editar', edit_article_path(@article), {class: "btn btn-default btn-lg"} %> 
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="page-header">
+    <h1><%= @article.title %> <small><%= @article.detail %> - <%= @article.date.strftime("%d/%m/%Y") %> </small> </h1>
+  </div>
+  <div class="row">
+    <div class="well well-lg">
+      <%= image_tag @article.photo.url(:medium), class:"img-rounded pull-right" %>
+      <p class="lead"> <%= @article.text %> </p>
+      <blockquote>
+        <footer>Fuente/Autor: <cite title="Source Title">Nené Peñaranda</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="page-header">
+    <h1>Más literatura </h1>
+  </div>
+  <div class="row">
+    <% @related_articles.each do |rel_article| %>
+      <div class="col-sm-6 col-md-4">
+        <a href="/welcome/articles/<%= rel_article.id %>">
+          <div class="thumbnail">
+            <%= image_tag rel_article.photo.url(:medium)%>
+            <div class="caption">
+              <h3><%= rel_article.title %> <small><%= truncate(rel_article.detail, length: 30)%> - <%= rel_article.date.strftime("%d/%m/%Y")%></small></h3>
+              <p class="lead"><%= truncate(rel_article.text, length: 200) %></p>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>

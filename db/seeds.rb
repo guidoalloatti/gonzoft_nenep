@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Article.delete_all
+Article.create(title: "Titulo", author: "Gonzo", date: Time.now,detail: "Titulo mas chico, algun dato", text: "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.", visible: true)
+Article.create(title: "Otro Titulo", author: "Juan", date: Time.now + 4.days, detail: "Titulo mas chico, mas chico todavia", text: "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.", visible: false)

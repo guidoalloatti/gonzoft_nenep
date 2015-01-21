@@ -15,7 +15,7 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
-$(document).ready(function() {
+$(document).on('page:load', function() {
   $('#carousel-example-generic').carousel();
 
   $("#is-provider").change(function(event) {
@@ -26,4 +26,7 @@ $(document).ready(function() {
       $("#provider-container").hide();
     }
   });
+  
+  $('[data-toggle="tooltip"]').tooltip();
+  
 });

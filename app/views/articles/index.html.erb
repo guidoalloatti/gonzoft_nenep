@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Gestionar Literaturas de Viaje <small>(se muestran ordernados según fecha de creación)</small></h1>
+  </div>
+  <div class="row">
+    <div class="panel">
+      
+      <div class="panel-heading news-color clearfix"><h4 class="pull-left">Panel de gestión</h4> <a class="btn btn-primary pull-right" href="/articles/new"> <span class="glyphicon glyphicon-plus"></span> Clickee aquí para crear un artículo </a></div>
+      <div class="panel-body">
+        <p class="lead">Esta tabla muestra todas los articulos activos en el sistema. Puede marcar la casilla 'Visible?' para definir cuales serán mostrados a los usuarios que ingresen al sitio en la sección de 'Literaturas de Viaje' desde el pie de página</p>
+      </div>
+
+      <!-- Table -->
+      <table class="table table-striped">
+        <thead>
+          <tr class="news-color">
+            <th>Título</th>
+            <th>Fecha</th>
+            <th>Detalle</th>
+            <th>Autor</th>
+            <th>Visible?</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @articles.each do |article| %>
+            <tr id="article<%= article.id %>">
+              <td><%= article.title %></td>
+              <td><%= article.date %></td>
+              <td><%= article.detail %></td>
+              <td><%= article.author %></td>
+              <td><input class="visibleChk" type="checkbox" value="<%= article.id %>" <%= article.visible ? 'checked' : ''%> /> </td>
+              <td>
+                <div class="btn-group" role="group" aria-label="...">
+                <a class="btn btn-mini" href="/articles/<%= article.id%>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Ver más"></span>
+                  </a>
+                  <a class="btn btn-mini" href="/articles/<%= article.id%>/edit">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Editar"></span>
+                  </a>
+                  <a class="btn btn-mini delete" article-key="<%= article.id %>" data-toggle="modal" data-target="#modalDelete"><span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Borrar"></span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="modalDelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      Esta seguro que desea eliminar esta Literatura?? No se podrá deshacer esta opción, recuerde que puede marcar el articulo como No visible para su posterior edición en lugar de borrarlo. 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      <button type="button" id="doDelete" class="btn btn-primary" article-key="0">Eliminar</button>
+    </div>
+  </div>
+</div>
