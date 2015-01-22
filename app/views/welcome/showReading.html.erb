@@ -1,13 +1,13 @@
 <div class="container">
   <div class="page-header">
-    <h1><%= @article.title %> <small><%= @article.detail %> - <%= @article.date.strftime("%d/%m/%Y") %> </small> </h1>
+    <h1><%= @article.title %> <small><%= @article.detail %> </small> </h1>
   </div>
   <div class="row">
     <div class="well well-lg">
       <%= image_tag @article.photo.url(:medium), class:"img-rounded pull-right" %>
       <%= simple_format(@article.text, class: "lead lead-show-article") %>
       <blockquote>
-        <footer>Fuente/Autor: <cite title="Source Title"><%= @article.author %></cite></footer>
+        <footer>Fuente/Autor: <cite title="Source Title"><%= @article.author %> - <%= @article.date.strftime("%d/%m/%Y") %> </cite></footer>
       </blockquote>
     </div>
   </div>
