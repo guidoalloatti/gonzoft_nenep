@@ -5,7 +5,7 @@
   <div class="row">
     <div class="well well-lg">
       <%= image_tag @article.photo.url(:medium), class:"img-rounded pull-right" %>
-      <p class="lead"> <%= @article.text %> </p>
+      <%= simple_format(@article.text, class: "lead") %>
       <blockquote>
         <footer>Fuente/Autor: <cite title="Source Title"><%= @article.author %></cite></footer>
       </blockquote>

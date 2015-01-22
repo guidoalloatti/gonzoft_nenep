@@ -229,7 +229,7 @@
             </a>
             <div class="media-body">
               <h4 class="media-heading"><a><%= article.title %></a> <small><%= truncate(article.detail, length: 30)%> - <%= article.date.strftime("%d/%m/%Y")%></small></h4>
-              <p class="lead"><%= truncate(article.text, length: 200) %></p>
+              <p class="lead"><%= truncate(article.text, length: 200) %> <a style="color: blue;" href="/welcome/articles/<%= article.id %>">(Seguir leyendo)</a></p>
             </div>
           </div>
           <% end%>
