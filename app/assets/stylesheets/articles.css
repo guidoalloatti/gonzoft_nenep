@@ -11,3 +11,6 @@ a:hover { color: #413421 !important; }
 
 .panel-heading>a:hover { color: #fff !important; }
 
+.lead-show-article {
+  font-size: 18px;
+}
