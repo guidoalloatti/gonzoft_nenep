@@ -6,7 +6,8 @@ gem 'rails', '4.0.1'
 gem 'devise'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
+gem 'execjs'
+gem 'therubyracer'
 gem "paperclip", "~> 4.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
