@@ -72,16 +72,20 @@
           </a>
         </li>
       </ul>
-                    
+      
+      <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Usuario: Nene</strong> <span class="caret"></span></a>
+          <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Usuario: <%= current_user['name'] %></strong> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/">Administrador Destinos/Promociones</a></li>
             <li><a href="/articles">Administrador Literaturas</a></li>
+            <li class="divider"></li>
+            <li><%= link_to "Cerrar sessión", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </li>
       </ul>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

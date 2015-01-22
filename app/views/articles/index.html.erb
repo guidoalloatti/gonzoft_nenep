@@ -17,7 +17,7 @@
             <th>Título</th>
             <th>Fecha</th>
             <th>Detalle</th>
-            <th>Autor</th>
+            <th>Subido por</th>
             <th>Visible?</th>
             <th></th>
           </tr>
@@ -29,7 +29,7 @@
               <td><%= article.title %></td>
               <td><%= article.date %></td>
               <td><%= article.detail %></td>
-              <td><%= article.author %></td>
+              <td><%= article.user['name'] %></td>
               <td><input class="visibleChk" type="checkbox" value="<%= article.id %>" <%= article.visible ? 'checked' : ''%> /> </td>
               <td>
                 <div class="btn-group" role="group" aria-label="...">

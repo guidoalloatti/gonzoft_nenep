@@ -7,7 +7,7 @@
       <%= image_tag @article.photo.url(:medium), class:"img-rounded pull-right" %>
       <p class="lead"> <%= @article.text %> </p>
       <blockquote>
-        <footer>Fuente/Autor: <cite title="Source Title">Nené Peñaranda</cite></footer>
+        <footer>Fuente/Autor: <cite title="Source Title"><%= @article.author %></cite></footer>
       </blockquote>
     </div>
   </div>

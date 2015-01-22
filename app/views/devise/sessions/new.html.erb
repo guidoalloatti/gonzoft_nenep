@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-4 col-md-offset-4">
+  <div class="page-header">
+    <h2>Acceso de administrador</h2>
+  </div>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Contraseña", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Ingresar a nenep.com.ar", class: "btn btn-success btn-block" %>
+    </div>
+  <% end %>
+  </div>
+</div>

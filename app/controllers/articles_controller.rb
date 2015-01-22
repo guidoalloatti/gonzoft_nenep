@@ -1,23 +1,11 @@
-
-# We should create user models, but for now
-
-class User
-  attr_accessor :id, :name
-end
-
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :load_users, only: [:new, :show, :edit, :update, :index]
+  before_action :authenticate_user!
 
   # GET /articles
   # GET /articles.json
   def index
-    @users = []
-    ['Gonzo', 'Juan', 'Pedro'].each.with_index do |value, index|
-      tempUser = User.new
-      tempUser.id = index
-      tempUser.name = value
-      @users.push(tempUser)
-    end
     @articles = Article.all.order(date: :desc)
 
   end
@@ -42,26 +30,11 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
-    @users = []
-    ['Gonzo', 'Juan', 'Pedro'].each.with_index do |value, index|
-      tempUser = User.new
-      tempUser.id = index
-      tempUser.name = value
-      @users.push(tempUser)
-    end
-    
+    @article = Article.new    
   end
 
   # GET /articles/1/edit
   def edit
-    @users = []
-    ['Gonzo', 'Juan', 'Pedro'].each.with_index do |value, index|
-      tempUser = User.new
-      tempUser.id = index
-      tempUser.name = value
-      @users.push(tempUser)
-    end
   end
 
   # POST /articles
@@ -109,8 +82,12 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
 
+    def load_users
+      @users = User.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :text, :detail, :visible, :date, :author, :photo)
+      params.require(:article).permit(:title, :text, :detail, :visible, :date, :author, :user_id, :photo)
     end
 end

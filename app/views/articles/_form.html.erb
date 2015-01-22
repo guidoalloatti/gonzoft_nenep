@@ -29,7 +29,7 @@
       <input type="checkbox" id="visible" name="article[visible]"  <%= @article.visible ? 'checked' : ''%>/>
     </div>
   </div>
-  <div class="col-xs-6">
+  <div class="col-xs-4">
     <div class="form-group">
       <label class="control-label" for="detail">Sub-título</label>
       <input class="form-control" type="text" id="detail" value="<%= @article.detail %>" name="article[detail]" placeholder="" >
@@ -38,10 +38,16 @@
   <div class="col-xs-2">
     <div class="form-group">
       <label class="control-label" for="author">Autor</label>
-      <%= collection_select( :article, :author, @users, :name, :name, {class: 'form-control'}, { class: 'form-control' } ) %>
+      <input class="form-control" type="text" id="author" value="<%= @article.author %>" name="article[author]" placeholder="" >
     </div>
   </div>
-  <div class="col-xs-4">
+  <div class="col-xs-2">
+    <div class="form-group">
+      <label class="control-label" for="user_id">Usuario</label>
+      <%= collection_select( :article, :user_id, @users, :id, :email, {class: 'form-control'}, { class: 'form-control' } ) %>
+    </div>
+  </div>
+  <div class="col-xs-3">
     <div class="form-group">
       <label class="control-label" for="author">Imagen</label>
       <%= f.file_field :photo, { class: 'form-control' } %>
