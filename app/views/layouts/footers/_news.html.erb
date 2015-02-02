@@ -1,12 +1,4 @@
 <div class="panel panel-primary">
-  <div class="panel-heading center">
-    <h1 align="center">
-      <a data-toggle="collapse" data-parent="#accordion" href="#collapseNews" class="collapsed" aria-expanded="true" aria-controls="collapseNews">
-        <strong>Viajeros  &  Territorios</strong>
-        <span class="pull-right glyphicon glyphicon-info-sign" style="margin-left: 10px;"></span>
-      </a>
-    </h1>
-  </div>
   <div id="collapseNews" class="panel-body panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
     <p class="lead" align="center">Para que te informes antes de viajar</p>
     <% @articles.each do |article|%>
@@ -16,9 +8,18 @@
       </a>
       <div class="media-body">
         <h4 class="media-heading"><a><%= article.title %></a> <small><%= truncate(article.detail, length: 30)%> - <%= article.date.strftime("%d/%m/%Y")%></small></h4>
-        <p class="lead"><%= truncate(article.text, length: 200) %> <small><a style="color: blue;" href="/welcome/articles/<%= article.id %>">(Seguir leyendo)</a></small></p>
+        <p><%= truncate(article.text, length: 300) %> <small><a style="color: blue;" href="/welcome/articles/<%= article.id %>">(Seguir leyendo)</a></small></p>
       </div>
     </div>
     <% end%>
+  </div>
+
+  <div class="panel-heading center">
+    <h1 align="center">
+      <a data-toggle="collapse" data-parent="#accordion" href="#collapseNews" class="collapsed" aria-expanded="true" aria-controls="collapseNews">
+        <strong>Viajeros  &  Territorios</strong>
+        <span class="pull-right glyphicon glyphicon-info-sign" style="margin-left: 10px;"></span>
+      </a>
+    </h1>
   </div>
 </div>

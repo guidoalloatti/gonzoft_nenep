@@ -1,20 +1,24 @@
 
-<div class="homepage container-fluid">
+<div class="homepage">
   <!-- Carrousel -->
   <div class="row">
     <div id="carrousel-container" class="col-md-12">
       <%= render :partial => "layouts/carrousel" %>
     </div>
   </div>
+
   <!-- Featurette -->
-  <hr class="featurette-divider">
-  <%= render :partial => "layouts/featurettes/nenep" %>
-    
-  <hr class="featurette-divider">
-  <%= render :partial => "layouts/featurettes/services" %>
-  
-  <hr class="featurette-divider">
-  <%= render :partial => "layouts/featurettes/contact" %>
+  <div>
+    <%= render :partial => "layouts/featurettes/nenep" %>
+  </div>
+
+  <div>
+    <%= render :partial => "layouts/featurettes/services" %>
+  </div>
+
+  <div>
+    <%= render :partial => "layouts/featurettes/contact" %>
+  </div>
   <!-- End Featurette -->
 
   <!-- Footer -->
