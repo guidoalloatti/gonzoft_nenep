@@ -18,6 +18,7 @@ Nenep::Application.routes.draw do
   resources :articles
   get 'article/:id/visible' => 'articles#updateVisibility'
   get 'welcome/articles/:id' => 'welcome#showReading'
+  get 'welcome/articles/' => 'welcome#showReadingList'
 
   # Example resource route with options:
   #   resources :products do

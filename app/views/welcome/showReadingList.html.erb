@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="page-header" align="center">
+    <h1>Viajeros y Territorios<small> para que te informes antes de viajar </small> </h1>
+  </div>
+  <div class="row">
+    <% @articles.each.with_index do |article, index| %>
+      <% classToUse = @classes[index % 3] %>
+      <div class="featurette <%= classToUse %>" id="services">
+        <a href="/welcome/articles/<%= article.id %>">
+          <%= image_tag article.photo.url(:medium), class:"featurette-image img-responsive pull-left list" %>
+        </a>
+        <h2 class="featurette-heading"><%= article.title %>
+            <small class="text-muted"><%= article.detail%></small>
+        </h2>
+        <%= simple_format(truncate(article.text, length: 400), class: "lead ") %>
+      </div>
+      <hr class="featurette-divider">
+    <% end %>
+    <address align="center">
+      <strong>Nené Peñaranda ™</strong><br>
+      Mitre 901, 7º A<br>
+      Rosario, Santa Fe, Argentina<br>
+      <abbr title="Phone">Tel:</abbr> (0341) 456-7890
+    </address>    
+  </div>
+</div>

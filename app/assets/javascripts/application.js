@@ -17,9 +17,7 @@
 //= require_tree .
 $(document).on('page:load', function() {
   $('#carousel-example-generic').carousel();
-
   $("#is-provider").change(function(event) {
-    debugger;
     if(this.checked) {
       $("#provider-container").show();
     } else {

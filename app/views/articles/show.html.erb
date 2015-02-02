@@ -11,7 +11,7 @@
     <% end %>
     <div class="media-body">
       <h4 class="media-heading"><a><%= @article.title %></a> <small><%= @article.detail%> - <%= @article.date.strftime("%d/%m/%Y")%></small></h4>
-      <p class="lead"><%= @article.text %></p>
+      <%= simple_format(@article.text, class: "lead lead-show-article") %>
     </div>
   </div>
   

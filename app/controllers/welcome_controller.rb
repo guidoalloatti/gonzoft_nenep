@@ -9,4 +9,9 @@ class WelcomeController < ApplicationController
     @related_articles = Article.where("id <> #{@article.id}").where(:visible => true).limit(3)
     
   end
+
+  def showReadingList
+    @classes = ['first', 'second', 'third']
+    @articles = Article.where(visible: true).order(date: :desc)
+  end
 end
