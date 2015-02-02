@@ -90,12 +90,15 @@ div.homepage {
   max-height: 500px;
   overflow: auto;
 }
-
 .promo-footer {
   margin-bottom: -20px;
   padding: 0;
   width: 51.5%;
   margin-left: 50%;
+}
+
+.footer-row .col-md-6 .collapsing .panel-heading{
+  display: block;
 }
 
 .news-footer {

@@ -1,5 +1,5 @@
 $(document).on('page:load', function() {
-  $('.visibleChk').change(function(){
+  $('.article.visibleChk').change(function(){
     $.ajax({
       url: '/article/'+ this.value +'/visible',
       type: 'GET',
@@ -24,7 +24,6 @@ $(document).on('page:load', function() {
   };
 
   $('#modalDelete').on('shown.bs.modal', function (event) {
-    debugger;
     var button = $(event.relatedTarget);
     var articleKey = button.attr("article-key");
     var modal = $(this);

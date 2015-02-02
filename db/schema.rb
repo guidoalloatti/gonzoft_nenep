@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121221403) do
+ActiveRecord::Schema.define(version: 20150202202658) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -27,6 +27,30 @@ ActiveRecord::Schema.define(version: 20150121221403) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.string   "price"
+    t.date     "startDate"
+    t.date     "endDate"
+    t.string   "itinerary"
+    t.integer  "nights"
+    t.integer  "productType"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "itinerary_image_file_name"
+    t.string   "itinerary_image_content_type"
+    t.integer  "itinerary_image_file_size"
+    t.datetime "itinerary_image_updated_at"
+    t.integer  "user_id"
+    t.boolean  "visible"
+    t.string   "boatName"
+    t.string   "boatLink"
+    t.string   "cruise_image_file_name"
+    t.string   "cruise_image_content_type"
+    t.integer  "cruise_image_file_size"
+    t.datetime "cruise_image_updated_at"
   end
 
   create_table "users", force: true do |t|

@@ -19,7 +19,7 @@
             <th>Detalle</th>
             <th>Subido por</th>
             <th>Visible?</th>
-            <th></th>
+            <th>Acciones</th>
           </tr>
         </thead>
 
@@ -30,7 +30,7 @@
               <td><%= article.date %></td>
               <td><%= article.detail %></td>
               <td><%= article.user['name'] %></td>
-              <td><input class="visibleChk" type="checkbox" value="<%= article.id %>" <%= article.visible ? 'checked' : ''%> /> </td>
+              <td><input class="article visibleChk" type="checkbox" value="<%= article.id %>" <%= article.visible ? 'checked' : ''%> /> </td>
               <td>
                 <div class="btn-group" role="group" aria-label="...">
                 <a class="btn btn-mini" href="/articles/<%= article.id%>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Ver más"></span>
@@ -52,7 +52,7 @@
 <div id="modalDelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      Esta seguro que desea eliminar esta Literatura?? No se podrá deshacer esta opción, recuerde que puede marcar el articulo como No visible para su posterior edición en lugar de borrarlo. 
+      Esta seguro que desea eliminar esta Literatura?? No se podrá deshacer esta opción, recuerde que puede marcar el articulo como No visible para su posterior edición en lugar de borrarlo.
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
