@@ -84,10 +84,16 @@ div.homepage {
   max-height: 500px;
   overflow: auto;
 }
-.footer-row .col-md-6.promo-footer {
-  margin-left: 591px;
+@media(min-width:1350px){
+  .footer-row .col-md-6.promo-footer {
+    margin-left: 670px;
+  }
 }
-
+@media(max-width:1349px){
+  .footer-row .col-md-6.promo-footer {
+    margin-left: 591px;
+  }
+}
 #promo-options.btn-group {
   display: block;
 }
