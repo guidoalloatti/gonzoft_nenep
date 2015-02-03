@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: MyString
+  startDate: 2015-02-02
+  endDate: 2015-02-02
+  itinerary: MyString
+  nights: 
+  productType: 
+
+two:
+  name: MyString
+  price: MyString
+  startDate: 2015-02-02
+  endDate: 2015-02-02
+  itinerary: MyString
+  nights: 
+  productType: 

@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Crear Crucero</h1>
+  </div>
+  <div class="row">
+    <%= form_for(@product, html: { multipart: true } ) do |f| %>
+      <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this  from being saved:</h2>
+
+          <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-xs-9">
+          <div class="form-group">
+            <label class="control-label" for="title">Nombre para mostrar:</label>
+            <input class="form-control" type="text" id="title" name="product[name]" placeholder="Este campo es requerido" value="<%= @product.name %>" required>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <label class="control-label" for="user_id">Usuario:<small>&nbsp;&nbsp;&nbsp;para uso interno</small></label><label class="control-label" for="user_id"><%= current_user.fullname %></label>
+            <input type="hidden" id="product[user_id]" name="product[user_id]" value="<%= current_user.id %>">
+            <input type="hidden" id="product[productType]" name="product[productType]" value="1">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="form-group">
+            <label class="control-label" for="text">Precio:<small>&nbsp;&nbsp;&nbsp;se muestra tal cual ingresado</small></label>
+            <input class="form-control" type="text" id="price" value="<%= @product.price %>" name="product[price]" placeholder="" >
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label class="control-label" for="date">Salida:</label>
+            <input class="form-control" type="date" id="startDate" name="product[startDate]" value="<%= !@product.startDate.nil? ? @product.startDate.strftime('%Y-%m-%d') : ''%>"required>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label class="control-label" for="date">Retorno:</label>
+            <input class="form-control" type="date" id="endDate" name="product[endDate]" value="<%= !@product.endDate.nil? ? @product.endDate.strftime('%Y-%m-%d') : ''%>"required>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label class="control-label" for="date">Noches:</label>
+            <input class="form-control" type="number" id="nights" name="product[nights]" value="<%= @product.nights %>"required>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label class="control-label" for="visible">Visible?:</label>
+            <input type="checkbox" id="visible" name="product[visible]"  <%= @product.visible ? 'checked' : ''%>/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="form-group">
+            <label class="control-label" for="boatName">Barco:<small>&nbsp;&nbsp;&nbsp;Ejemplo: Costa Mediterráneo</small></label>
+            <input class="form-control" type="text" id="boatName" value="<%= @product.boatName %>" name="product[boatName]" placeholder="" >
+          </div>
+        </div>
+        <div class="col-xs-5">
+          <div class="form-group">
+            <label class="control-label" for="boatLink">Link:<small>&nbsp;&nbsp;&nbsp;Ejemplo: http://www.costacruceros.com/arg/costa_mediterranea.html</small></label>
+            <input class="form-control" type="text" id="boatLink" value="<%= @product.boatLink %>" name="product[boatLink]" placeholder="" >
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <label class="control-label" for="cruise_image">Imagen crucero:</label>
+            <%= f.file_field :cruise_image, { class: 'form-control' } %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="form-group">
+            <label class="control-label" for="detail">Itinerario:<small>&nbsp;&nbsp;&nbsp;Ejemplo: Destino1 --> Destino2 --> Destino3 --> Destino1</small></label>
+            <input class="form-control" type="text" id="itinerary" value="<%= @product.itinerary %>" name="product[itinerary]" placeholder="" >
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <label class="control-label" for="itinerary_image">Imagen itinerario:<small>&nbsp;&nbsp;desde la web de costa</small></label>
+            <%= f.file_field :itinerary_image, { class: 'form-control' } %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a class="btn btn-default" href="/products/list/1">Volver</a>
+      </div>
+    <% end %>
+
+  </div>
+</div>

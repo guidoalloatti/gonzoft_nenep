@@ -1,0 +1,28 @@
+<div class="media">
+  <a class="media-left media-top" href="#">
+    <%= image_tag product.cruise_image.url(:small) %>
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><a><%= product.name %></a> <small><%= product.price %></small></h4>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Itinerario:</strong> <%= product.itinerary %></li>
+      <li class="list-group-item"><strong>Salida:</strong> <%= product.startDate %>
+      <strong> - Noches:</strong> <%= product.nights %> </li>
+      <li class="list-group-item">
+        <strong> Crucero: </strong><a href="<%= product.boatLink %>" target="_blank"> <%= product.boatName %> </a>
+      </li>
+      <li class="list-group-item">
+        <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
+          <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
+            Ver más
+            <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
+          </a>
+          <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
+            Consultar
+            <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

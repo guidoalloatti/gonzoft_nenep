@@ -29,7 +29,7 @@
               <td><%= article.title %></td>
               <td><%= article.date %></td>
               <td><%= article.detail %></td>
-              <td><%= article.user['name'] %></td>
+              <td><%= article.user.fullname %></td>
               <td><input class="article visibleChk" type="checkbox" value="<%= article.id %>" <%= article.visible ? 'checked' : ''%> /> </td>
               <td>
                 <div class="btn-group" role="group" aria-label="...">

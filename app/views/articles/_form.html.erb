@@ -41,16 +41,17 @@
       <input class="form-control" type="text" id="author" value="<%= @article.author %>" name="article[author]" placeholder="" >
     </div>
   </div>
-  <div class="col-xs-2">
-    <div class="form-group">
-      <label class="control-label" for="user_id">Usuario</label>
-      <%= collection_select( :article, :user_id, @users, :id, :email, {class: 'form-control'}, { class: 'form-control' } ) %>
-    </div>
-  </div>
   <div class="col-xs-3">
     <div class="form-group">
       <label class="control-label" for="author">Imagen</label>
       <%= f.file_field :photo, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="form-group">
+      <label class="control-label" for="user_id">Usuario<small>&nbsp;&nbsp;para uso interno</small></label>
+      <label class="control-label" for="user_id"><%= current_user.fullname %></label>
+      <input type="hidden" id="article[user_id]" name="article[user_id]" value="<%= current_user.id %>">
     </div>
   </div>
   <div class="col-xs-12">

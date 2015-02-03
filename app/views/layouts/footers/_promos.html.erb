@@ -1,15 +1,21 @@
 <div class="panel panel-info">
   <div id="collapsePromos" class="panel-body panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <% @products.each do |product| %>
     <div class="media">
       <a class="media-left media-top" href="#">
-        <img src="caribe-chico.jpg" alt="...">
+        <%= image_tag product.cruise_image.url(:small) %>
       </a>
       <div class="media-body">
-        <h4 class="media-heading"><a>Mediterráneo (5 noches)</a> <small>desde $15.766 por persona! OFERTON!</small></h4>
+        <h4 class="media-heading"><a><%= product.name %></a> <small><strong><%= product.price %></strong></small></h4>
         <ul class="list-group">
-          <li class="list-group-item"><strong>Itinerario:</strong> Civitavecchia -> Palermo -> La Goulette -> Barcelona -> Marseille -> Génova -> Civitavecchia</li>
-          <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015
-          <strong> - Noches:</strong> 7 </li>
+          <li class="list-group-item"><strong>Itinerario:</strong> <%= product.itinerary %></li>
+          <li class="list-group-item"><strong>Salida:</strong> <%= product.startDate %>
+          <strong> - Noches:</strong> <%= product.nights %> </li>
+          <% if product.productType == 1 %>
+          <li class="list-group-item">
+            <strong> Crucero: </strong><a href="<%= product.boatLink %>" target="_blank"> <%= product.boatName %> </a>
+          </li>
+          <% end %>
           <li class="list-group-item">
             <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
               <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
@@ -25,129 +31,7 @@
         </ul>
       </div>
     </div>
-    <div class="media">
-      <a class="media-left media-top" href="#">
-        <img src="costa_fortuna400.jpg" alt="...">
-      </a>
-                  <div class="media-body">
-        <h4 class="media-heading"><a>Mediterráneo (5 noches)</a> <small>desde $17.599 persona!</small></h4>
-        <ul class="list-group">
-          <li class="list-group-item"><strong>Itinerario:</strong> Civitavecchia -> Palermo -> La Goulette -> Barcelona -> Marseille -> Génova -> Civitavecchia</li>
-          <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 22/01/2015<strong> - Noches:</strong> 8 </li>
-          <li class="list-group-item">
-            <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
-              <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
-                Ver más
-                <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
-              </a>
-              <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
-                Consultar
-                <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="media">
-      <a class="media-left media-top" href="#">
-        <img src="caribe-chico.jpg" alt="...">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><a>Mediterráneo (5 noches)</a> <small>desde $13.499 persona! Precios promocionales!</small></h4>
-        <ul class="list-group">
-          <li class="list-group-item"><strong>Itinerario:</strong> Civitavecchia -> Palermo -> La Goulette -> Barcelona -> Marseille -> Génova -> Civitavecchia</li>
-          <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 20/01/2015<strong> - Noches:</strong> 6 </li>
-          <li class="list-group-item">
-            <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
-              <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
-                Ver más
-                <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
-              </a>
-              <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
-                Consultar
-                <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="media">
-      <a class="media-left media-top" href="#">
-        <img src="costa_fortuna400.jpg" alt="...">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><a>Mediterráneo (5 noches)</a> <small>desde x persona $10.000</small></h4>
-        <ul class="list-group">
-          <li class="list-group-item"><strong>Itinerario:</strong> Civitavecchia > Palermo > La Goulette > Barcelona > Marseille > Génova > Civitavecchia</li>
-          <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
-          <li class="list-group-item"><strong>Noches:</strong> 7</li>
-          <li class="list-group-item">
-            <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
-              <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
-                Ver más
-                <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
-              </a>
-              <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
-                Consultar
-                <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="media">
-      <a class="media-left media-top" href="#">
-        <img src="caribe-chico.jpg" alt="...">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><a>Mediterráneo (5 noches)</a> <small>desde x persona $10.000</small></h4>
-        <ul class="list-group">
-          <li class="list-group-item"><strong>Itinerario:</strong> Civitavecchia > Palermo > La Goulette > Barcelona > Marseille > Génova > Civitavecchia</li>
-          <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
-          <li class="list-group-item"><strong>Noches:</strong> 7</li>
-          <li class="list-group-item">
-            <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
-              <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
-                Ver más
-                <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
-              </a>
-              <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
-                Consultar
-                <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="media">
-      <a class="media-left media-top" href="#">
-        <img src="costa_fortuna400.jpg" alt="...">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><a>Mediterráneo (5 noches)</a> <small>desde x persona $10.000</small></h4>
-        <ul class="list-group">
-          <li class="list-group-item"><strong>Itinerario:</strong> Civitavecchia > Palermo > La Goulette > Barcelona > Marseille > Génova > Civitavecchia</li>
-          <li class="list-group-item"><strong>Fechas:</strong> 13/01/2015 - 21/01/2015</li>
-          <li class="list-group-item"><strong>Noches:</strong> 7</li>
-          <li class="list-group-item">
-            <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
-              <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
-                Ver más
-                <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
-              </a>
-              <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
-                Consultar
-                <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <% end %>
   </div>
 
   <div class="panel-heading center">

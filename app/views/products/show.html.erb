@@ -1,0 +1,26 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="well well-lg">
+      <div class="page-header">
+        <h1><%= @product.name %> <small><%= @product.startDate %> </small> </h1>
+      </div>
+      <%= image_tag @product.itinerary_image.url(:medium), class:"img img-rounded pull-right" %>
+      <p class="lead"> <strong> Itinerario: </strong><%= @product.itinerary %></p>
+      <p class="lead"> <strong> Sale </strong> <%= @product.startDate %> <strong> Vuelta </strong> <%= @product.endDate %> <strong> Noches </strong> <%= @product.nights %> 
+      </p>
+      <div class="page-header">
+        <h2>Crucero: <%= @product.boatName %> </h2>
+      </div>
+      <%= image_tag @product.cruise_image.url(:medium), class:"img" %>
+      <p class="lead">
+        
+      </p>
+    </div>
+  </div>
+  <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">      
+    <%= link_to 'Volver', "/products/list/#{@product.productType}", { class: "btn btn-primary btn-lg"} %>
+    <%= link_to 'Editar', edit_product_path(@product), {class: "btn btn-default btn-lg"} %> 
+  </div>
+
+</div>

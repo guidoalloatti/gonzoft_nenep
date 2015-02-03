@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @articles = Article.where(visible: true).order(date: :desc)
+    @products = Product.where(visible: true).order(startDate: :desc)
   end
 
   def showReading

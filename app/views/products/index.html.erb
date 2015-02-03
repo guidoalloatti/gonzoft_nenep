@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Gestionar <%= "#{@modelName}s" %> <small>(se muestran ordernados según fecha de creación)</small></h1>
+  </div>
+  <div class="row">
+    <div class="panel">
+      
+      <div class="panel-heading cruise-color clearfix"><h4 class="pull-left">Panel de gestión</h4> <a class="btn btn-primary pull-right" href="/product/new/<%= @productType %>"> <span class="glyphicon glyphicon-plus"></span> Clickee aquí para crear un <%= @modelName %> </a></div>
+      <div class="panel-body">
+        <p class="lead">Esta tabla muestra todas los <%= "#{@modelName}s" %> activos en el sistema. Puede marcar la casilla 'Visible?' para definir cuales serán mostrados a los usuarios que ingresen al sitio en la sección de 'Destinos/Promociones' desde el pie de página</p>
+      </div>
+
+      <!-- Table -->
+      <table class="table table-striped">
+        <thead>
+          <tr class="cruise-color">
+            <th>Nombre</th>
+            <th>Salida</th>
+            <th>Vuelta</th>
+            <th>Noches</th>
+            <th>Precio</th>
+            <th>Subido por</th>
+            <th>Visible?</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @products.each do |product| %>
+            <tr id="product<%= product.id %>">
+              <td><%= product.name %></td>
+              <td><%= product.startDate %></td>
+              <td><%= product.endDate %></td>
+              <td><%= product.nights %></td>
+              <td><span data-toggle="tooltip" data-placement="bottom" title="<%= product.price %>"><%= truncate(product.price, length: 30) %></span></td>
+              <td><%= product.user.fullname %></td>
+              <td><input class="product visibleChk" type="checkbox" value="<%= product.id %>" <%= product.visible ? 'checked' : ''%> /> </td>
+              <td>
+                <div class="btn-group" role="group" aria-label="...">
+                <a class="btn btn-mini" href="/products/<%= product.id%>"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Ver más"></span>
+                  </a>
+                  <a class="btn btn-mini" href="/products/<%= product.id%>/edit">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Editar"></span>
+                  </a>
+                  <a class="btn btn-mini delete" product-key="<%= product.id %>" data-toggle="modal" data-target="#modalDeleteProduct"><span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Borrar"></span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="modalDeleteProduct" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      Esta seguro que desea eliminar este <%= @modelName %>?? No se podrá deshacer esta opción, recuerde que puede marcarlo como No visible para su posterior edición en lugar de borrarlo.
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      <button type="button" id="doDelete" class="btn btn-primary" product-key="0">Eliminar</button>
+    </div>
+  </div>
+</div>
