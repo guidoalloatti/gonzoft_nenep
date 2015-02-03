@@ -4,11 +4,18 @@ body {
 
 div.homepage {
   margin-bottom: 50px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #article-show {
   margin-top: 60px;
 } 
+
+#collapseNews {
+  margin-left: 15px;
+}
+
 .navbar-form input {
   width: 250px !important;
 }
@@ -16,6 +23,7 @@ div.homepage {
   max-height: 490px;
 }*/
 .carousel-caption {
+  z-index: 0;
   right: 0;
   left: 0;
 }
@@ -28,7 +36,7 @@ div.homepage {
 }
 
 #carrousel-container {
-  border: 10px solid;
+  /*  border: 10px solid;*/
   padding-right: 0px;
   padding-left: 0px;
 }
