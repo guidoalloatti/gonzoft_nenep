@@ -24,7 +24,9 @@
         </div>
         <div class="col-xs-3">
           <div class="form-group">
-            <label class="control-label" for="user_id">Usuario:<small>&nbsp;&nbsp;&nbsp;para uso interno</small></label><label class="control-label" for="user_id"><%= current_user.fullname %></label>
+            <label class="control-label" for="user_id">Usuario:</label>
+            <label class="control-label" for="user_id"> <%= current_user.fullname %> </label>
+            <label></label><small> (para uso interno)</small></label>
             <input type="hidden" id="product[user_id]" name="product[user_id]" value="<%= current_user.id %>">
             <input type="hidden" id="product[productType]" name="product[productType]" value="1">
           </div>

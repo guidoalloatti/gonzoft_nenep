@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 
   validates_attachment_file_name :itinerary_image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 
-  has_attached_file :cruise_image, :styles => { :small => "150x150>",:medium => "300x300>" },
+  has_attached_file :cruise_image, :styles => { :small => "150x150>", :medium => "300x300>", :large => "640x480>" },
                   :url  => "/assets/product/cruise_image/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/product/cruise_image/:id/:style/:basename.:extension"
 

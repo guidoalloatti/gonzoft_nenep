@@ -8,6 +8,34 @@ div.homepage {
   overflow-y: hidden;
 }
 
+.product-left-column {
+  width: 40%;
+  padding-top: 10px;
+}
+
+.product-right-column {
+  width: 60%;
+  padding-top: 10px;
+}
+
+.cruise-text {
+  background: aliceblue;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: -1px;
+  padding-left: 30px;
+  font-size: 32px;
+}
+
+.margin-sm {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
+}
+
 #article-show {
   margin-top: 60px;
 } 
@@ -22,6 +50,7 @@ div.homepage {
 /*.carousel-inner {
   max-height: 490px;
 }*/
+
 .carousel-caption {
   z-index: 0;
   right: 0;
