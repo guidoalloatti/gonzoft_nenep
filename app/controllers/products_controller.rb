@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
     if params[:productType]
       @product.productType = params[:productType]
     end
+    puts @product.productType
     respond_with(@product)
   end
 
@@ -68,6 +69,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :price, :startDate, :endDate, :nights, :visible, :boatName, :boatLink, :cruise_image, :itinerary, :itinerary_image, :productType, :user_id)
+      params.require(:product).permit(:name, :price, :startDate, :endDate, :nights, :visible, :boatName, :boatLink, :cruise_image, :itinerary, :itinerary_image, :productType, :user_id, :hotelName, :hotelLink, :hotel_image, :excursions, :flightName, :flightFrom, :flightTo)
     end
 end

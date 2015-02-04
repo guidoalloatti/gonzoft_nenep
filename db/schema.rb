@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202202658) do
+ActiveRecord::Schema.define(version: 20150204003029) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20150202202658) do
     t.string   "cruise_image_content_type"
     t.integer  "cruise_image_file_size"
     t.datetime "cruise_image_updated_at"
+    t.string   "hotelName"
+    t.string   "hotelLink"
+    t.string   "hotel_image_file_name"
+    t.string   "hotel_image_content_type"
+    t.integer  "hotel_image_file_size"
+    t.datetime "hotel_image_updated_at"
+    t.string   "excursions"
+    t.string   "flightName"
+    t.string   "flightFrom"
+    t.string   "flightTo"
   end
 
   create_table "users", force: true do |t|

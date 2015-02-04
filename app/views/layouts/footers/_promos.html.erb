@@ -3,7 +3,11 @@
     <% @products.each do |product| %>
     <div class="media">
       <a class="media-left media-top" href="#">
-        <%= image_tag product.cruise_image.url(:small) %>
+        <% if product.productType == 1 %>
+          <%= image_tag product.cruise_image.url(:small) %>
+        <% else %>
+          <%= image_tag product.hotel_image.url(:small) %>
+        <% end %>
       </a>
       <div class="media-body">
         <h4 class="media-heading"><a><%= product.name %></a> <small><strong><%= product.price %></strong></small></h4>
@@ -11,9 +15,19 @@
           <li class="list-group-item"><strong>Itinerario:</strong> <%= product.itinerary %></li>
           <li class="list-group-item"><strong>Salida:</strong> <%= product.startDate %>
           <strong> - Noches:</strong> <%= product.nights %> </li>
-          <% if product.productType == 1 %>
+          <% if !product.boatName.empty? %>
           <li class="list-group-item">
             <strong> Crucero: </strong><a href="<%= product.boatLink %>" target="_blank"> <%= product.boatName %> </a>
+          </li>
+          <% end %>
+          <% if !product.hotelName.empty? %>
+          <li class="list-group-item">
+            <strong> Alojamiento: </strong><a href="<%= product.hotelLink %>" target="_blank"> <%= product.hotelName %> </a>
+          </li>
+          <% end %>
+          <% if !product.flightName.empty? %>
+          <li class="list-group-item">
+            <strong> Vuelo: </strong><%= product.flightName %> <strong> - Desde: </strong><%= product.flightFrom %> <strong> - Hasta: </strong><%= product.flightTo %>
           </li>
           <% end %>
           <li class="list-group-item">

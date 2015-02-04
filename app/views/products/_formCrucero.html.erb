@@ -28,7 +28,7 @@
             <label class="control-label" for="user_id"> <%= current_user.fullname %> </label>
             <label></label><small> (para uso interno)</small></label>
             <input type="hidden" id="product[user_id]" name="product[user_id]" value="<%= current_user.id %>">
-            <input type="hidden" id="product[productType]" name="product[productType]" value="1">
+            <input type="hidden" id="product[productType]" name="product[productType]" value="<%=@product.productType%>">
           </div>
         </div>
       </div>

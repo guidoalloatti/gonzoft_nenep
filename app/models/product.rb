@@ -13,6 +13,12 @@ class Product < ActiveRecord::Base
 
   validates_attachment_file_name :cruise_image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   
+  has_attached_file :hotel_image, :styles => { :small => "150x150>",:medium => "300x300>", :large => "1024x768>" },
+                  :url  => "/assets/product/hotel_image/:id/:style/:basename.:extension",
+                  :path => ":rails_root/public/assets/product/hotel_image/:id/:style/:basename.:extension"
+
+  validates_attachment_file_name :hotel_image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  
   belongs_to :user
   
   private
