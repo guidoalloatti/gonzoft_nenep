@@ -15,4 +15,9 @@ class WelcomeController < ApplicationController
     @classes = ['first', 'second', 'third']
     @articles = Article.where(visible: true).order(date: :desc)
   end
+
+  def showPackages
+    @header = params[:type] == '1' ?   "Cruceros" : "Paquetes"
+    @packages = Product.where(:productType => params[:type]).where(:visible => true)
+  end
 end

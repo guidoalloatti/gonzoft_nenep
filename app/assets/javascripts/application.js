@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require full-page.min
 //= require turbolinks
 //= require_tree .
-$(document).on('page:load', function() {
+var ready;
+ready = function(){
   $('#carousel-example-generic').carousel();
 
   $('.modal').on('show.bs.modal', function () {
@@ -33,5 +33,7 @@ $(document).on('page:load', function() {
   })
       
   $('[data-toggle="tooltip"]').tooltip();
-  
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

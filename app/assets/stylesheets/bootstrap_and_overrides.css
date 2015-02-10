@@ -1,5 +1,6 @@
 body {
   margin-top: 54px;
+  background-color: #F6FCFB;
 }
 
 div.homepage {
@@ -148,6 +149,7 @@ div.homepage {
   display: block;
 }
 
+
 /* FEATURETTE CSS */
 .featurette-divider {
     margin: 40px 0;
@@ -214,4 +216,13 @@ body.modal-open-noscroll
 
 .img-bordered {
   border: 10px solid;
+}
+
+.bg-default {
+  background-color: #;
+  color: #000;
+}
+
+.packages-display span.glyphicon {
+  margin: 0px 3.5px;  
 }

@@ -36,6 +36,11 @@ class Product < ActiveRecord::Base
   def flightPresent?
     return !self.flightName.empty? && !self.flightFrom.empty? && !self.flightTo.empty? 
   end
+
+  def main_image
+    return self.productType == 1 ? self.cruise_image : self.hotel_image
+  end
+
   private
 
   def clear_images

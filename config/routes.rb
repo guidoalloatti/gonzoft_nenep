@@ -20,4 +20,5 @@ Nenep::Application.routes.draw do
   get 'product/new/:productType' => 'products#new'
   get 'products/list/:productType' => 'products#index'
   
+  get '/welcome/products/:type' => 'welcome#showPackages'
 end

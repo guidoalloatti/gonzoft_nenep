@@ -1,0 +1,49 @@
+<div class="container packages-display">
+  <div class="page-header" align="center">
+    <h1>Conozca nuestros <%= @header %></h1>
+  </div>
+  <div class="row">
+    <% @packages.each.with_index do |package, index| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag package.main_image.url(:medium), class:"img img-rounded img-bordered" %>  
+          <div class="caption">
+            <h3><%= package.name %> </h3>
+            <p class="lead"><%= package.price %></p>
+            <p class="">Incluye:</p>
+            <div class="row">
+            <div class="col-md-6">
+              <p class="lead">
+                <% if package.boatPresent? %>
+                  <span class="glyphicon glyphicon-globe" data-toggle="tooltip" data-placement="top" title="Viaje en crucero"></span>
+                <% end %>
+                <% if package.hotelPresent? %>
+                  <span class="glyphicon glyphicon-home" data-toggle="tooltip" data-placement="top" title="Estadía en hotel"></span>
+                <% end %>
+                <% if package.flightPresent? %>
+                  <span class="glyphicon glyphicon-plane" data-toggle="tooltip" data-placement="top" title="Vuelo conexión"></span>
+                <% end %>
+                <% if !package.excursions.empty? %>
+                  <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="Excursiones!!"></span>
+                <% end %>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p class="lead"><span class="badge" style="padding: 0px 7px; font-size: 20px; background-color: #000; margin-right: 5px;"><%= package.nights %></span>Noches</p>
+            </div>
+            </div>
+            <p class="btn-group btn-group-justified" style="display:block;"><a href="#" class="btn btn-primary" role="button">Ver más</a> <a href="#" class="btn btn-default" role="button">Consultar</a></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <address align="center">
+      <strong>Nené Peñaranda ™</strong><br>
+      Mitre 901, 7º A<br>
+      Rosario, Santa Fe, Argentina<br>
+      <abbr title="Phone">Tel:</abbr> (0341) 456-7890
+    </address>
+  </div>
+</div>
