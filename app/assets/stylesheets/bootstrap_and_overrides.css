@@ -203,3 +203,15 @@ body.modal-open-noscroll
 {
   margin-right: 0!important;
 }
+
+.bg-nenep {
+  padding: 10px;
+}
+
+.product-itinerary-image-container {
+  margin-bottom: 20px;
+}
+
+.img-bordered {
+  border: 10px solid;
+}

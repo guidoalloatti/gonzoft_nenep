@@ -2,7 +2,7 @@
   <br/>  
   <div class="row">
     <div class="well well-sm cruise-text">
-       <strong><%= @product.name %></strong> <small> sale el <%= @product.startDate %> </small>
+       <strong><%= @product.name %></strong> <small> salida <%= @product.startDate.strftime("%d/%m/%Y") %> </small>
       <div id="promo-options" class="btn-group pull-right" role="group" aria-label="...">      
         <%= link_to 'Editar', edit_product_path(@product), {class: "btn btn-default btn-lg"} %> 
         <%= link_to 'Volver', "/products/list/#{@product.productType}", { class: "btn btn-primary btn-lg"} %>
@@ -13,42 +13,88 @@
   <div class="well well-sm cruise-data-container img-rounded">
     <div class="row margin-sm">
       <div class="product-left-column col-md-6">
-        <p class="lead"> <strong><u>Fechas</u></strong><br/>
-          <strong>Sale: </strong> <%= @product.startDate %><br/> 
-          <strong> Vuelta: </strong> <%= @product.endDate %><br/>
-          <strong> Cantidad de Noches: </strong> <%= @product.nights %> 
+        <p class="lead">
+          <strong>Sale: </strong> <%= @product.startDate.strftime("%d/%m/%Y") %>  <span class="glyphicon glyphicon-calendar"data-toggle="tooltip" data-placement="right" title="<%= @product.startDate.strftime("%A").to_sym %>"></span>
+
+        </p>
+        <p class="lead">
+          <strong> Vuelta: </strong> <%= @product.endDate.strftime("%d/%m/%Y") %>  <span class="glyphicon glyphicon-calendar"data-toggle="tooltip" data-placement="right" title="<%= @product.endDate.strftime("%A").to_sym %>"></span>
+        </p>
+        <p class="lead">
+          <strong> Cantidad de Noches: </strong> <span class="badge badge-success"><%= @product.nights %> </span>
         </p>
       </div>
       <div class="product-right-column col-md-6" >
-        <p class="lead"> <strong><u>Itinerario</u></strong><br/>
+        <p class="lead"> <strong>Itinerario</strong><br/>
           <%= @product.itinerary %>
         </p>
       </div>
     </div>
 
     <div class="row margin-sm">
-      <div class="product-left-column col-md-6">
-        <div class="lead">
-          <strong><u>Crucero</u></strong><a href="<%= @product.boatLink %>" TARGET="_blank"> <%= @product.boatName %></a>
+      <% if @product.boatPresent? %>
+        <div class="col-md-8">
+          <div class="lead">
+            <strong>Crucero</strong><a href="<%= @product.boatLink %>" TARGET="_blank"> <%= @product.boatName %></a>
+          </div>
+          <div  class="product-itinerary-image-container">
+            <%= image_tag @product.cruise_image.url(:large), class:"img img-rounded img-bordered" %>  
+          </div>
         </div>
-        <div>
-          <%= image_tag @product.cruise_image.url(:medium), class:"img img-rounded" %>  
+      <% end %>
+      <% if @product.showItinerary? %>
+        <div class="col-md-4">
+          <div class="lead">
+            <strong>Itinerario Ilustrado</strong>
+          </div>
+          <div>
+          <%= image_tag @product.itinerary_image.url(:medium), class:"img img-center img-rounded " %>
+          </div>
         </div>
-      </div>
-      <div class="product-right-column col-md-6">
-        <div class="lead">
-          <strong><u>Itinerario Ilustrado</u></strong>
-        </div>
-        <div>
-        <%= image_tag @product.itinerary_image.url(:medium), class:"img img-rounded" %>
-        </div>
-      </div>
+      <% end %>
     </div>
 
     <div class="row margin-sm">
-      <div class="product-left-column col-md-6 lead">
-        <strong><u>Precio</u></strong><br/>
-        <%= @product.price %>
+      <% if @product.flightPresent? %>
+        <div class="col-md-4">
+          <div class="lead" align="center">
+            <strong>Incluye traslado Aéreo!   </strong><span class="glyphicon glyphicon-plane"></span>
+          </div>
+          <div align="center">
+            <p class="lead">
+              <span class="glyphicon glyphicon-ok" ></span><strong> Vuelo </strong> <%= @product.flightName %>
+            </p>
+            <p class="lead">
+              <span class="glyphicon glyphicon-ok" ></span><strong> Desde </strong> <%= @product.flightFrom %>
+            </p>
+            <p class="lead">
+              <span class="glyphicon glyphicon-ok" ></span><strong> Hacia </strong> <%= @product.flightTo %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @product.hotelPresent? %>
+        <div class="col-md-8" align="center">
+          <div class="lead">
+            <strong>Hotel</strong><a href="<%= @product.hotelLink %>" TARGET="_blank"> <%= @product.hotelName %></a>
+          </div>
+          <div>
+            <%= image_tag @product.hotel_image.url(:large), class:"img img-rounded img-bordered" %>  
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="row margin-sm">
+      <div class="col-md-6 lead">
+        <strong>Precio</strong><br/>
+        <p class="bg-nenep"><%= @product.price %></p>
+      </div>
+      <div class="col-md-6 lead">
+        </br>
+        <a class="btn btn-block btn-lg btn-success">Me interesa!</a>
       </div>
     </div>
   </div>
