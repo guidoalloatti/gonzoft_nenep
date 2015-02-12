@@ -25,11 +25,11 @@
           <% end %>
           <li class="list-group-item">
             <div id="promo-options" class="btn-group btn-group-justified" role="group" aria-label="...">
-              <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#infoModal">
+              <a class="btn btn-primary btn-lg" href="/products/<%= product.id %>">
                 Ver más
                 <span class="pull-right glyphicon glyphicon-eye-open" style="margin-left: 10px;"></span>
               </a>
-              <a data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-lg">
+              <a data-toggle="modal" data-target="#contactModal" product-id="<%= product.id %>"class="btn btn-default btn-lg contact-button">
                 Consultar
                 <span class="pull-right glyphicon glyphicon-question-sign" style="margin-left: 10px;"></span>
               </a>

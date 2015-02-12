@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
-  respond_to :html
+  respond_to :html, :xml, :json  
 
   def index
     @products = Product.where(productType: params[:productType])
@@ -14,7 +14,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    respond_with(@product)
+    respond_to do |format|
+    format.json {
+     render :json => @product.to_json(:methods => [:main_image])
+    }
+    format.html { respond_with(@product) }
+  end
+    
   end
 
   def new
@@ -69,6 +75,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :price, :startDate, :endDate, :nights, :visible, :boatName, :boatLink, :cruise_image, :itinerary, :itinerary_image, :productType, :user_id, :hotelName, :hotelLink, :hotel_image, :excursions, :flightName, :flightFrom, :flightTo)
+      params.require(:product).permit(:name, :price, :startDate, :endDate, :nights, :visible, :boatName, :boatLink, :cruise_image, :itinerary, :itinerary_image, :productType, :user_id, :hotelName, :hotelLink, :hotel_image, :excursions, :flightName, :flightFrom, :flightTo, :video_Link, :main_image)
     end
 end

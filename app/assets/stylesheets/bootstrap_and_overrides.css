@@ -226,3 +226,7 @@ body.modal-open-noscroll
 .packages-display span.glyphicon {
   margin: 0px 3.5px;  
 }
+
+.packages-display .badge {
+  background-color: #2A93D8;
+}

@@ -1,0 +1,25 @@
+<h2 style="text-align=center;"><%= message.subject %></h4>
+
+<% if @resource.class.to_s == 'Contact' %>
+  
+  <p>
+    Hemos recibido una solicitud de presupuesto a través del sitio <a href="http://www.nenep.com.ar" target="_blank">nenep.com.ar</a>
+  </p>
+
+  <h4>Datos de la persona interesada</h4>
+
+  <p><strong>Nombre y Apellido:</strong> <%= @resource.name %></p>
+  <p><strong>Phone:</strong> <%= @resource.phone %></p>
+  <p><strong>Email:</strong> <%= @resource.email %></p>
+  <p><strong>Destino de interés:</strong> <%= @resource.travelDestiny %></p>
+  <p><strong>Fecha estimada de viaje:</strong> <%= @resource.travelDate %></p>
+  <p><strong>Consulta:</strong> <%= @resource.text %></p>
+<% else %>
+  <h4 style="text-align=center";>Estimado <%= @resource.name %></h4>
+
+  <p>
+    Nuestro equipo ha recibido su consulta, un especialista se pondrá en contacto lo antes posible para asesorarlo
+    <a href="http://www.nenep.com.ar" target="_blank">nenep.com.ar</a>
+  </p>
+
+<% end %>

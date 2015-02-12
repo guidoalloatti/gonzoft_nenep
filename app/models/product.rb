@@ -21,6 +21,8 @@ class Product < ActiveRecord::Base
   
   belongs_to :user
 
+  attr_reader :main_image
+
   def boatPresent?
     return self.cruise_image.present? && !self.boatName.empty? && !self.boatLink.empty? 
   end
@@ -38,7 +40,7 @@ class Product < ActiveRecord::Base
   end
 
   def main_image
-    return self.productType == 1 ? self.cruise_image : self.hotel_image
+    return self.productType == 1 ? self.cruise_image.url(:medium) : self.hotel_image.url(:medium)
   end
 
   private

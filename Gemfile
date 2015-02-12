@@ -6,6 +6,9 @@ gem 'rails', '4.0.1'
 gem 'devise'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'mail_form'
+gem 'simple_form'
+
 # gem 'execjs'
 # gem 'therubyracer'
 gem "paperclip", "~> 4.2"
@@ -39,6 +42,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'mailcatcher'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
