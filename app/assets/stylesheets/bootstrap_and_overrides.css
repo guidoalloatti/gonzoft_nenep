@@ -106,13 +106,27 @@ div.homepage {
     color: #337ab7;
 }
 
-.footer-row .col-md-6 {
+.footer-row .col-md-6{
     position: fixed;
     bottom: 0;
+    margin-bottom: -20px;
+}
+
+.footer-row .col-md-12{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 0px;
+    margin-bottom: -20px;
 }
 
 .footer-row .panel-heading {
   height: 48px;
+}
+
+.footer-row .panel-heading.static {
+  height: 30px;
+  padding: 4px;
 }
 
 .footer-row h1 {

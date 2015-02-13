@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container homepage">
   <div class="page-header">
     <h1><%= @article.title %> <small><%= @article.detail %> </small> </h1>
   </div>
@@ -30,12 +30,5 @@
     <% end %>
     <hr class="featurette-divider">
   </div>
-  <div class="row">
-    <address align="center">
-      <strong>Nené Peñaranda ™</strong><br>
-      Mitre 901, 7º A<br>
-      Rosario, Santa Fe, Argentina<br>
-      <abbr title="Phone">Tel:</abbr> (0341) 456-7890
-    </address>
-  </div>
+  <%= render :partial => "layouts/footers/staticFooter" %>
 </div>
