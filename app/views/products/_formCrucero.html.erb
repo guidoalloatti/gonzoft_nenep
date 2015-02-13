@@ -15,7 +15,7 @@
           </ul>
         </div>
       <% end %>
-      <div class="row">
+      <div class="row bg-default">
         <div class="col-xs-9">
           <div class="form-group">
             <label class="control-label" for="title">Nombre para mostrar:</label>
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row bg-default">
         <div class="col-xs-4">
           <div class="form-group">
             <label class="control-label" for="text">Precio:<small>&nbsp;&nbsp;&nbsp;se muestra tal cual ingresado</small></label>
@@ -42,13 +42,13 @@
         <div class="col-xs-2">
           <div class="form-group">
             <label class="control-label" for="date">Salida:</label>
-            <input class="form-control" type="date" id="startDate" name="product[startDate]" value="<%= !@product.startDate.nil? ? @product.startDate.strftime('%Y-%m-%d') : ''%>"required>
+            <input class="form-control" type="date" id="startDate" name="product[startDate]" value="<%= !@product.startDate.nil? ? @product.startDate.strftime('%d/%m/%Y') : ''%>"required>
           </div>
         </div>
         <div class="col-xs-2">
           <div class="form-group">
             <label class="control-label" for="date">Retorno:</label>
-            <input class="form-control" type="date" id="endDate" name="product[endDate]" value="<%= !@product.endDate.nil? ? @product.endDate.strftime('%Y-%m-%d') : ''%>"required>
+            <input class="form-control" type="date" id="endDate" name="product[endDate]" value="<%= !@product.endDate.nil? ? @product.endDate.strftime('%d/%m/%Y') : ''%>"required>
           </div>
         </div>
         <div class="col-xs-2">
@@ -64,7 +64,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row bg-default">
         <div class="col-xs-4">
           <div class="form-group">
             <label class="control-label" for="boatName">Barco:<small>&nbsp;&nbsp;&nbsp;Ejemplo: Costa Mediterráneo</small></label>
@@ -84,7 +84,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row bg-default">
         <div class="col-xs-8">
           <div class="form-group">
             <label class="control-label" for="detail">Itinerario:<small>&nbsp;&nbsp;&nbsp;Ejemplo: Destino1 --> Destino2 --> Destino3 --> Destino1</small></label>
@@ -98,9 +98,113 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12">
-        <button type="submit" class="btn btn-success">Guardar</button>
-        <a class="btn btn-default" href="/products/list/1">Volver</a>
+      <div class="row bg-default">
+        <div id="showExtra" class="panel panel-info">
+          <div class="panel-heading bg-warning">
+              <span style="margin-left: 30px; font-size: 20px; text-decoration: none;">Alojamiento, Aéreo, Excursiones<small style="font-size: 12px;"> + click para cargar</small></span>
+              <span class="pull-left glyphicon glyphicon-plus"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row hidden">
+        <div class="panel panel-warning">
+          <span data-toggle="collapse" data-parent="#accordion" href="#collapseHotel" class="collapsed" aria-expanded="true" aria-controls="collapseHotel">
+            <div class="panel-heading bg-warning">
+                <span style="margin-left: 30px; font-size: 20px; text-decoration: none;">Alojamiento<small style="font-size: 12px;"> + click para expandir</small></span>
+                <span class="pull-left glyphicon glyphicon-home"></span>
+            </div>
+          </span>
+          <div id="collapseHotel" class="panel-body panel-collapse collapse bg-warning">
+            <div class="col-xs-4">
+              <div class="form-group">
+                <label class="control-label" for="hotelName">Nombre:<small>&nbsp;&nbsp;&nbsp;Ejemplo: La Boheme, Buzios</small></label>
+                <input class="form-control" type="text" id="hotelName" value="<%= @product.hotelName %>" name="product[hotelName]" placeholder="" >
+              </div>
+            </div>
+            <div class="col-xs-5">
+              <div class="form-group">
+                <label class="control-label" for="hotelLink">Link:<small>&nbsp;&nbsp;&nbsp;Ejemplo: http://www.labohemehotel.com/</small></label>
+                <input class="form-control" type="text" id="hotelLink" value="<%= @product.hotelLink %>" name="product[hotelLink]" placeholder="" >
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class="form-group">
+                <label class="control-label" for="hotel_image">Imagen:</label>
+                <%= f.file_field :hotel_image, { class: 'form-control' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row hidden">
+        <div class="panel panel-info">
+          <span data-toggle="collapse" data-parent="#accordion" href="#collapseFlight" class="collapsed" aria-expanded="true" aria-controls="collapseFlight">
+            <div class="panel-heading bg-info">
+                <span style="margin-left: 30px; font-size: 20px; text-decoration: none;">Aéreo<small style="font-size: 12px;"> + click para expandir</small></span>
+                <span class="pull-left glyphicon glyphicon-plane"></span>
+            </div>
+          </span>
+          <div id="collapseFlight"class="panel-body panel-collapse collapse bg-info">
+            <div class="col-xs-4">
+              <div class="form-group">
+                <label class="control-label" for="flightName">Vuelo:<small>&nbsp;&nbsp;&nbsp;Ejemplo: LAN 773</small></label>
+                <input class="form-control" type="text" id="flightName" value="<%= @product.flightName %>" name="product[flightName]" placeholder="" >
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="form-group">
+                <label class="control-label" for="flightFrom">Origen:<small>&nbsp;&nbsp;&nbsp;Ejemplo: Buenos Aires 22/11/2014 19PM</small></label>
+                <input class="form-control" type="text" id="flightFrom" value="<%= @product.flightFrom %>" name="product[flightFrom]" placeholder="" >
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="form-group">
+                <label class="control-label" for="flightTo">Destino:<small>&nbsp;&nbsp;&nbsp;Ejemplo: Rio de Janeiro 22/11/2014 23:50PM</small></label>
+                <input class="form-control" type="text" id="flightTo" value="<%= @product.flightTo %>" name="product[flightTo]" placeholder="" >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row hidden">
+        <div class="panel panel-info">
+          <span data-toggle="collapse" data-parent="#accordion" href="#collapseExcursions" class="collapsed" aria-expanded="true" aria-controls="collapseExcursions">
+            <div class="panel-heading bg-success">
+                <span style="margin-left: 30px; font-size: 20px; text-decoration: none;">Excursiones<small style="font-size: 12px;"> + click para expandir</small></span>
+                <span class="pull-left glyphicon glyphicon-film"></span>
+            </div>
+          </span>
+          <div id="collapseExcursions"class="panel-body panel-collapse collapse bg-success">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label class="control-label" for="excursions">Excursiones:</label>
+                <textarea class="form-control" rows="15" id="excursions" value="<%= @product.excursions %>" name="product[excursions]" placeholder="" ></textarea> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row hidden">
+        <div class="panel panel-danger">
+          <span data-toggle="collapse" data-parent="#accordion" href="#collapseVideo" class="collapsed" aria-expanded="true" aria-controls="collapseVideo">
+            <div class="panel-heading bg-danger">
+                <span style="margin-left: 30px; font-size: 20px; text-decoration: none;">Video<small style="font-size: 12px;"> + click para expandir</small></span>
+                <span class="pull-left glyphicon glyphicon-film"></span>
+            </div>
+          </span>
+          <div id="collapseVideo"class="panel-body panel-collapse collapse bg-danger">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label class="control-label" for="video_Link">Link Video (Youtube):</label>
+                <input class="form-control" type="text" id="video_Link" name="product[video_Link]" value="<%= @product.video_Link %>">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12" align="center">
+        <button type="submit" class="btn btn-success btn-lg">Guardar</button>
+        <a class="btn btn-default btn-lg" href="/products/list/1">Volver</a>
       </div>
     <% end %>
 

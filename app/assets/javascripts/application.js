@@ -15,22 +15,63 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
-$(document).on('page:load', function() {
-  $('#carousel-example-generic').carousel();
+var ready;
 
-  $('.modal').on('show.bs.modal', function () {
-    if ($(document).height() > $(window).height()) {
-          // no-scroll
-          $('body').addClass("modal-open-noscroll");
+ready = function(){
+  var validateRequiredFields = function(form){
+    var result = true;
+    $('#contactForm *').filter(':input').each(function(){
+      if (!$(this).val()){
+        $("#"+$(this).attr("id") +"-container").addClass('has-error');
+        result = false;
+      } else {
+        $("#"+$(this).attr("id") +"-container").removeClass('has-error');
       }
-      else {
-          $('body').removeClass("modal-open-noscroll");
-      }
-  })
-  $('.modal').on('hide.bs.modal', function () {
-      $('body').removeClass("modal-open-noscroll");
-  })
-      
-  $('[data-toggle="tooltip"]').tooltip();
+    });
+    return result;
+  };
+
+  var sendEmail = function(){
+    if (validateRequiredFields($("#contactForm")))
+    {
+      $.ajax({
+        url: '/contacts/',
+        type: 'POST',
+        data: $("#contactForm").serialize(),
+        dataType: 'json'
+      })
+      .done(function(response) {
+        $("#contactModal").modal('hide');
+        if(response.status == 200){
+          // $(".alert .alert-text").html(response.message);
+          $("#confirmationModal").modal('show');
+        }
+      });
+    }
+  };
+
+  $('.contact-button').click(function(){
+    $.ajax({
+      url: '/products/'+ $(this).attr("product-id"),
+      type: 'GET',
+      dataType: 'json'
+    })
+    .done(function(response) {
+      $('#contactModal .modal-body #travelDestiny').val(response.name);
+      $('#contactModal').modal('show');
+    });
+    
+  });
+
+  $('#contactModal .btn-primary').click(function(){
+    sendEmail();
+  });
+
+  $('#carousel-example-generic').carousel();
   
-});
+        
+  $('[data-toggle="tooltip"]').tooltip();
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

@@ -40,13 +40,13 @@
         <div class="col-xs-2">
           <div class="form-group">
             <label class="control-label" for="date">Salida:</label>
-            <input class="form-control" type="date" id="startDate" name="product[startDate]" value="<%= !@product.startDate.nil? ? @product.startDate.strftime('%Y-%m-%d') : ''%>"required>
+            <input class="form-control" type="date" id="startDate" name="product[startDate]" value="<%= !@product.startDate.nil? ? @product.startDate.strftime('%d/%m/%Y') : ''%>"required>
           </div>
         </div>
         <div class="col-xs-2">
           <div class="form-group">
             <label class="control-label" for="date">Retorno:</label>
-            <input class="form-control" type="date" id="endDate" name="product[endDate]" value="<%= !@product.endDate.nil? ? @product.endDate.strftime('%Y-%m-%d') : ''%>"required>
+            <input class="form-control" type="date" id="endDate" name="product[endDate]" value="<%= !@product.endDate.nil? ? @product.endDate.strftime('%d/%m/%Y') : ''%>"required>
           </div>
         </div>
         <div class="col-xs-2">
@@ -184,9 +184,29 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="panel panel-danger">
+          <span data-toggle="collapse" data-parent="#accordion" href="#collapseVideo" class="collapsed" aria-expanded="true" aria-controls="collapseVideo">
+            <div class="panel-heading bg-danger">
+                <span style="margin-left: 30px; font-size: 20px; text-decoration: none;">Video<small style="font-size: 12px;"> + click para expandir</small></span>
+                <span class="pull-left glyphicon glyphicon-film"></span>
+            </div>
+          </span>
+          <div id="collapseVideo"class="panel-body panel-collapse collapse bg-danger">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label class="control-label" for="video_Link">Link Video (Youtube):</label>
+                <input class="form-control" type="text" id="video_Link" name="product[video_Link]" value="<%= @product.video_Link %>">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col-xs-12">
+        <div class="btn-group btn-group-justified" role="group">
         <button type="submit" class="btn btn-success">Guardar</button>
         <a class="btn btn-default" href="/products/list/1">Volver</a>
+        </div>
       </div>
     <% end %>
 

@@ -1,5 +1,6 @@
 body {
   margin-top: 54px;
+  background-color: #F6FCFB;
 }
 
 div.homepage {
@@ -105,13 +106,27 @@ div.homepage {
     color: #337ab7;
 }
 
-.footer-row .col-md-6 {
+.footer-row .col-md-6{
     position: fixed;
     bottom: 0;
+    margin-bottom: -20px;
+}
+
+.footer-row .col-md-12{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 0px;
+    margin-bottom: -20px;
 }
 
 .footer-row .panel-heading {
   height: 48px;
+}
+
+.footer-row .panel-heading.static {
+  height: 30px;
+  padding: 4px;
 }
 
 .footer-row h1 {
@@ -147,6 +162,7 @@ div.homepage {
 #promo-options.btn-group {
   display: block;
 }
+
 
 /* FEATURETTE CSS */
 .featurette-divider {
@@ -202,4 +218,33 @@ body.modal-open-noscroll
 .modal-open-noscroll .navbar-fixed-top, .modal-open .navbar-fixed-bottom
 {
   margin-right: 0!important;
+}
+
+.bg-nenep {
+  padding: 10px;
+}
+
+.product-itinerary-image-container {
+  margin-bottom: 20px;
+}
+
+.img-bordered {
+  border: 10px solid;
+}
+
+.bg-default {
+  background-color: #;
+  color: #000;
+}
+
+.packages-display span.glyphicon {
+  margin: 0px 3.5px;  
+}
+
+.packages-display .badge {
+  background-color: #2A93D8;
+}
+
+#related-articles-container a:hover{
+  text-decoration: none;
 }

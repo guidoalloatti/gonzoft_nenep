@@ -1,0 +1,62 @@
+<div class="container packages-display homepage" align="center">
+  <div class="page-header" >
+    <h1>Conozca nuestros <%= @header %></h1>
+  </div>
+  <div class="alert alert-success hidden">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <span class="alert-text"></span>
+  </div>
+  <% @packages.each.with_index do |package, index| %>
+    <%= puts index %>
+    <% if index % 3 == 0%>
+    <div class="row">
+    <% end %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3><%= package.name %> </h3>
+            <p class="lead"><%= package.price %></p>
+            <div class="product-info">
+              <p class="">Incluye:</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="lead">
+                    <% if package.boatPresent? %>
+                      <span class="glyphicon glyphicon-globe" data-toggle="tooltip" data-placement="top" title="Viaje en crucero"></span>
+                    <% end %>
+                    <% if package.hotelPresent? %>
+                      <span class="glyphicon glyphicon-home" data-toggle="tooltip" data-placement="top" title="Estadía en hotel"></span>
+                    <% end %>
+                    <% if package.flightPresent? %>
+                      <span class="glyphicon glyphicon-plane" data-toggle="tooltip" data-placement="top" title="Vuelo conexión"></span>
+                    <% end %>
+                    <% if !package.excursions.empty? %>
+                      <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="Excursiones!!"></span>
+                    <% end %>
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <p class="lead">
+                    <span class="bg-info badge" style="padding: 0px 7px; font-size: 20px; margin-right: 5px;"><%= package.nights %>
+                    </span>
+                    Noches
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <span class="btn-group btn-group-justified" style="display:block;"><a href="/products/<%= package.id%>" class="btn btn-primary" role="button">Ver más</a> <a href="#" product-id="<%= package.id %>" class="btn btn-default contact-button" role="button">Consultar</a></span>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% if index % 3 == 2 || index == @packages.length - 1 %>
+    </div>
+    <% end %>
+  <% end %>
+  <%= render :partial => "layouts/footers/staticFooter" %>
+  <%= render :partial => "layouts/contactModal" %>
+</div>

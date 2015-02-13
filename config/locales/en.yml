@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  Sunday: "Domingo"
+  Tuesday: "Martes"
+  Monday: "Lunes"
+  Saturday: "Sábado"

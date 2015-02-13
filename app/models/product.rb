@@ -20,11 +20,34 @@ class Product < ActiveRecord::Base
   validates_attachment_file_name :hotel_image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   
   belongs_to :user
+
+  attr_reader :main_image
+
+  def boatPresent?
+    return self.cruise_image.present? && !self.boatName.empty? && !self.boatLink.empty? 
+  end
   
+  def hotelPresent?
+    return self.hotel_image.present? && !self.hotelName.empty? && !self.hotelLink.empty? 
+  end
+  
+  def showItinerary?
+    return self.itinerary_image.present?
+  end
+
+  def flightPresent?
+    return !self.flightName.empty? && !self.flightFrom.empty? && !self.flightTo.empty? 
+  end
+
+  def main_image
+    return self.productType == 1 ? self.cruise_image.url(:medium) : self.hotel_image.url(:medium)
+  end
+
   private
 
   def clear_images
     self.itinerary_image.clear
     self.cruise_image.clear
   end
+
 end

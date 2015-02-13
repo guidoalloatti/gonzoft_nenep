@@ -1,6 +1,8 @@
 Nenep::Application.routes.draw do
   resources :products
   resources :articles
+  resources :contacts, only: [ :create]
+  resources :confirmations, only: [ :create]
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'admin'}
   get "welcome/index"
@@ -20,4 +22,5 @@ Nenep::Application.routes.draw do
   get 'product/new/:productType' => 'products#new'
   get 'products/list/:productType' => 'products#index'
   
+  get '/welcome/products/:type' => 'welcome#showPackages'
 end

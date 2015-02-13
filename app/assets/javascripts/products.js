@@ -1,4 +1,11 @@
-$(document).on('page:load', function() {
+var ready;
+ready = function(){
+  $('#showExtra').click(function(){
+    $('#showExtra').hide();
+    $('form.edit_product .hidden').removeClass('hidden');
+    $('form.new_product .hidden').removeClass('hidden');
+  });
+
   $('.product.visibleChk').change(function(){
     $.ajax({
       url: '/product/'+ this.value +'/visible',
@@ -34,4 +41,7 @@ $(document).on('page:load', function() {
       $('#modalDeleteProduct').modal('hide');
     });
   });
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
