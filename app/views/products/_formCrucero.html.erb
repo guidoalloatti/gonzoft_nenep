@@ -42,13 +42,13 @@
         <div class="col-xs-2">
           <div class="form-group">
             <label class="control-label" for="date">Salida:</label>
-            <input class="form-control" type="date" id="startDate" name="product[startDate]" value="<%= !@product.startDate.nil? ? @product.startDate.strftime('%Y-%m-%d') : ''%>"required>
+            <input class="form-control" type="date" id="startDate" name="product[startDate]" value="<%= !@product.startDate.nil? ? @product.startDate.strftime('%d/%m/%Y') : ''%>"required>
           </div>
         </div>
         <div class="col-xs-2">
           <div class="form-group">
             <label class="control-label" for="date">Retorno:</label>
-            <input class="form-control" type="date" id="endDate" name="product[endDate]" value="<%= !@product.endDate.nil? ? @product.endDate.strftime('%Y-%m-%d') : ''%>"required>
+            <input class="form-control" type="date" id="endDate" name="product[endDate]" value="<%= !@product.endDate.nil? ? @product.endDate.strftime('%d/%m/%Y') : ''%>"required>
           </div>
         </div>
         <div class="col-xs-2">

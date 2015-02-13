@@ -16,7 +16,7 @@
   </div>
   <div class="row">
     <% @related_articles.each do |rel_article| %>
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-6 col-md-4" id="related-articles-container" title="Click para leer más">
         <a href="/welcome/articles/<%= rel_article.id %>">
           <div class="thumbnail">
             <%= image_tag rel_article.photo.url(:medium)%>

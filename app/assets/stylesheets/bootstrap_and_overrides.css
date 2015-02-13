@@ -230,3 +230,7 @@ body.modal-open-noscroll
 .packages-display .badge {
   background-color: #2A93D8;
 }
+
+#related-articles-container a:hover{
+  text-decoration: none;
+}
